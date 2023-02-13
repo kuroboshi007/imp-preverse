@@ -1,12 +1,14 @@
 runtime: nodejs18
-env: standard
+instance_class: F1
 
-# Serve static files from the 'dist' directory.
 handlers:
-- url: /.*
-  static_files: dist/index.html
-  upload: dist/index.html
+- url: /
+  static_files: client/dist/index.html
+  upload: client/dist/index.html
 
-- url: /(.*\.(css|js|png|jpg|gif))$
-  static_files: dist/\1
-  upload: dist/(.*)
+- url: /(.*)
+  static_files: client/dist/\1
+  upload: client/dist/(.*)
+
+- url: /.*
+  script: server/app.js
