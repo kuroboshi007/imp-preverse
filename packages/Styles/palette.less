@@ -1,0 +1,63 @@
+@import "config";
+
+/* less二维数组定义方式及循环取值 */
+@colorArr: 
+  @red10 @red20 @red30 @red40 @red50 @red60 @red70 @red80 @red90 @red100, 
+  @primary10 @primary20 @primary30 @primary40 @primary50 @primary60 @primary70 @primary80 @primary90 @primary100, 
+  @green10 @green20 @green30 @green40 @green50 @green60 @green70 @green80 @green90 @green100,
+  @purple10 @purple20 @purple30 @purple40 @purple50 @purple60 @purple70 @purple80 @purple90 @purple100,
+  @orange10 @orange20 @orange30 @orange40 @orange50 @orange60 @orange70 @orange80 @orange90 @orange100,
+  @yellow10 @yellow20 @yellow30 @yellow40 @yellow50 @yellow60 @yellow70 @yellow80 @yellow90 @yellow100,
+  @black @black10 @black20 @black30 @black40 @black50 @black60 @black70 @black80 @white,
+  @brown10 @brown20 @brown30 @brown40 @brown50 @brown60 @brown70 @brown80 @brown90 @brown100,
+  ;
+@len: length(@colorArr);
+@length: length(extract(@colorArr,1));
+
+.Loop-i(@i) when(@i=<@len) {
+  .Loop-j(@j) when(@j=<@length) {
+    .palette_list:nth-child(@{i}) ul li:nth-child(@{j}){
+      background-color: extract(extract(@colorArr,@i),@j);
+      color: if((@j =< (@length/2)), extract(extract(@colorArr,@i),(@length - 1)), extract(extract(@colorArr,@i),4));
+    }
+    .Loop-j(@j+1);
+  }
+  .Loop-j(0);
+  .Loop-i(@i+1);
+}
+.Loop-i(0);
+
+
+.palette {
+  .palette_list {
+    margin-bottom: 15px;
+    display: inline-block;
+    &:nth-child(2n) {
+      margin-left: 15px;
+    }
+  }
+  .color_tit{
+    display: block;
+    text-align: left;
+    font-size: 16px;
+  }
+  .color_body{
+    // display: inline-block;
+  }
+  .tonal-palettes {
+    display: flex;
+    width: 450px;
+    // margin: 0 auto;
+    // border: 1px solid @black;
+    box-sizing: border-box;
+    .tonal-row {
+      flex: 1;
+      height: 74px;
+      line-height: 74px;
+      margin: 0;
+      padding: 0;
+      font-size: 12px;
+    }
+    
+  }
+}

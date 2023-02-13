@@ -1,0 +1,71 @@
+@import "config";
+
+.menu {
+  width: 256px;
+  text-align: left;
+  background: @white;
+  // padding: 0 15px;
+  box-sizing: border-box;
+  // height: 100vh;
+  // overflow: hidden;
+  ul {
+    // width: 250px;
+    li {
+      position: relative;
+      color: @textDark;
+      &.active,
+      &:hover {
+        ._main {
+          color: @text;
+          opacity: .7;
+          ._text {
+            transform: scale(1.1);
+            margin-left: 10px;
+          }
+        }
+      }
+      li.active-sub,
+      li:hover {
+        ._sub {
+          opacity: .7;
+          ._text {
+            transform: scale(1.2);
+          }
+        }
+      }
+      li.active-sub ._sub{
+        background: @bg;
+      }
+    }
+    ._main, ._sub {
+      height: 44px;
+      padding: 10px 20px;
+      margin: 0;
+      box-sizing: border-box;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      span {
+        vertical-align: middle;
+        &:not(.material-icons){
+          margin-left: 6px;
+          display: inline-block;
+        }
+      }
+    }
+    ._sub {
+      font-size: 14px;
+      background-color: rgba(255,255,255,1);
+      margin: 0 24px;
+      border-radius: 10px;
+      .material-icons{
+        font-size: 18px;
+      }
+    }
+    ._click {
+      position: absolute;
+      right: 10px;
+      top: 10px;
+      cursor: pointer;
+    }
+  }
+}

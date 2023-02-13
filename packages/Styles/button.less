@@ -1,0 +1,73 @@
+@import "config";
+
+// button
+.g-button {
+  padding: 8px 10px;
+  background: @white;
+  color: @text;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: all 0.5s ease;
+  &:focus,
+  &:hover {
+    border: 1px solid @text;
+    background: @text;
+    color: @white;
+  }
+  &.g-icon-button {
+    position: relative;
+    padding-left: 32px;
+    .material-icons {
+      position: absolute;
+      top: 50%;
+      left: 8px;
+      transform: translateY(-12px);
+    }
+  }
+  &.g-button-round{
+    padding: 0;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    .material-icons {
+      left: 50%;
+      transform: translate(-12px, -12px);
+    }
+  }
+  &.g-button-disabled {
+    background-color: @disableBg;
+    color: @disableText;
+    cursor: not-allowed;
+    &:focus,
+    &:hover {
+      border-color: @black70;
+    }
+  }
+  &.g-icon-button 
+  &.g-button-full-width {
+    width: 100%;
+  }
+  &[type="info"] {
+    color: @infoLight;
+    border: 1px solid @infoDark;
+    background: @infoDark;
+    &:focus,
+    &:hover {
+      color: @infoDark;
+      border-color: @infoLight;
+      background-color: @infoLight; 
+    }
+  }
+  &[type="primary"] {
+    border: 1px solid @primaryDark;
+    border-color: @black40;
+    background: @primaryDark;
+    color: @primaryLight;
+    &:focus,
+    &:hover {
+      color: @primaryDark;
+      border-color: @primaryLight;
+      background-color: @primaryLight;
+    }
+  }
+}
