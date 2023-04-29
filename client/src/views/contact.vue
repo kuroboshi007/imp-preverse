@@ -26,7 +26,7 @@ import { useStore } from 'vuex'
 import { key } from '../store'
 
 export default {
-  name: "About",
+  name: "Contact",
   setup() {
     const router = useRouter();
     const store = useStore(key);

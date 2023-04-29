@@ -1,9 +1,9 @@
 <template>
   <nav :class="navType">
     <ul>
+        <!-- @click="(data.sub && expand) ? expandMenu : chgNav(data.name, index)" -->
       <li
         v-for="(data, index) in lists"
-        @click="expandMenu"
         :class="{ active: isActive == index }">
         <div class="_main">
           <span class="material-icons" v-show="icons">{{ data.icon }}</span>
@@ -13,7 +13,8 @@
           <li 
             v-for="(d, i) in data.sub"
             :class="{ 'active-sub': isActive == i }"
-            @click="chgNav(d.name, i)">
+            >
+            <!-- @click="chgNav(d.name, i)" -->
             <div class="_sub">
               <span class="_text">{{ d.text }}</span>
             </div>
@@ -57,7 +58,7 @@ export default {
     const chgNav = (name,i) => {
       console.log(name,i)
       console.log('====, ');
-      router.push(name)
+      // router.push(name)
       isActive.value = i
     }
 

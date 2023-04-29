@@ -1,7 +1,7 @@
 <template>
-  <div class="content">
+  <div class="content _flex">
     <!-- <testFunc class="cont-lf bg_op" msg="title.Test" :reverse="true" /> -->
-    <Profile />
+    <List />
   </div>
 </template>
 
@@ -9,7 +9,7 @@
 import testFunc from "./../components/testFunc.vue";
 import Profile from "./../components/profile.vue";
 export default {
-  name: "Home",
+  name: "Category",
   components: {
     testFunc,
     Profile,

@@ -13,10 +13,37 @@ input {
     left: 5px;
     transform: translateY(-12px);
   }
+  &._shadow {
+    width: 100%;
+    // box-shadow: 4px 3px 1px 1px rgba(0, 0, 0, 1);
+    box-shadow: 5px 3px 0px @textDark;
+    border-radius: 8px;
+    .material-icons{
+      left: unset;
+      right: 5px;
+      color: @textDark;
+    }
+    input{
+      width: 100%;
+      border: 2px solid @textDark;
+      border-radius: 8px;
+      &:focus,
+      &:hover {
+        border: 2px solid @textDark;
+      }
+      &::placeholder {
+        color: @placeholderColor;
+      }
+    }
+  }
+
 }
 .g-input {
   display: inline-block;
   text-align: left;
+  &._shadow {
+    width: 100%;
+  }
   > label {
     display: block;
     font-size: @fontSize;
@@ -36,6 +63,9 @@ input {
     }
     &.g-icon-input{
       padding-left: 32px;
+    }
+    &.g-icon-input-right{
+      padding-right: 32px;
     }
     &.g-input-error {
       border-color: @errorColor;

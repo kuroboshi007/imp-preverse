@@ -1,42 +1,46 @@
 <template>
-  <div class="menu">
-    <div class="logo profile" v-if="model=='admin'">
+  <div class="menu" :class="{ '_hidden': isHidden }">
+    <div class="logo">
       <div class="avater">
         <img alt="avater" :src="user.avater" />
       </div>
       <div class="_tag">
         <h3 class="_name">{{ user.name}}</h3>
       </div>
-      <hr class="line" />
-      <div class="intro">
-        Welcome, {{ user.name}}.
-      </div>
     </div>
-    <g-menu :navType="model" icons :lists="lists"></g-menu>
-    <g-button icon="tips_and_updates">test btn?</g-button>
+    <g-menu 
+      :navType="model" 
+      icons 
+      :lists="lists" 
+      @update:hidden="handleHiddenUpdate"></g-menu>
   </div>
 </template>
 
 <script>
 import { defaultSettings as set } from '../common/ts/settings.ts'
+import { ref, onMounted } from 'vue'
 
 export default {
   name: "Menu",
   props: {
-    model: String,
+    model: String
   },
   setup(props) {
 
-    const jumpTo = () => {
-      console.log('--------aaa')
-    }
     console.log(set)
+
+    const isHidden = ref(false);
+
+    const handleHiddenUpdate = (newHiddenValue) =>  {
+      isHidden.value = newHiddenValue;
+    }
 
     // data
     return {
-      jumpTo,
+      isHidden,
+      handleHiddenUpdate,
       user: set.user[0],
-      lists: set.menu
+      lists: set.menu,
     }
   }
 };

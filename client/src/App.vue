@@ -1,7 +1,7 @@
 <template>
   <div class="main" :class="{ _admin: model=='admin' }">
-    <Menu :model="model" />
     <router-view />
+    <Menu :model="model" />
   </div>
 </template>
 
@@ -17,7 +17,7 @@ export default defineComponent({
   },
   data() {
     return {
-      model: 'admin'
+      model: 'blog'
     }
   }
 })

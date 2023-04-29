@@ -7,9 +7,7 @@ const path = require('path');
 app.use(express.static(path.join(__dirname, '../client/dist')));
 
 app.get('/', (req, res) => {
-  // res.send('Hello from App Engine!');
   res.sendFile(path.join(__dirname, '../client/dist/index.html'));
-
 });
 
 // Listen to the App Engine-specified port, or 8080 otherwise
